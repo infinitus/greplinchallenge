@@ -19,7 +19,7 @@ def isPrime(number):
         divisor += 1  
     return True
 
-while fiboNew < 100000000000:
+while True:
     fiboNum = fiboOld
     if fiboNum > minNumber:
         if isPrime(fiboNum) == True:
