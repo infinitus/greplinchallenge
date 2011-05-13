@@ -32,11 +32,11 @@ fiboNum += 1
 print fiboNum
 
 while fiboNum != 1:
-	if isPrime(primeFactor) == True:
-		while fiboNum % primeFactor == 0:
+    if isPrime(primeFactor) == True:
+        while fiboNum % primeFactor == 0:
 			fiboNum = fiboNum / primeFactor
 			sumOfPrimeFactors += primeFactor
 			print ("/" + str(primeFactor) + "=" + str(fiboNum))
-	primeFactor += 1
+    primeFactor += 1
 
 print("Sum of prime factors = " + str(sumOfPrimeFactors))
