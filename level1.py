@@ -3,39 +3,24 @@ dataString = """Fourscoreandsevenyearsagoourfaathersbroughtforthonthiscontainent
 indexMin = 0
 indexMax = 0
 offset = 20 #longest length the palindrome might be
-unSymFlag = 0
-content = ""
-answer = ""
 answerLen = 0
 
-#first character
+
+def isPalindrome(string):
+    string = str(string)
+    for index in range(len(string)/2):
+        if (string[index] != string[-1-index]):
+            return False
+    return True
+
+
 for indexMin in range(len(dataString)-offset):
-	#last character
     for indexMax in range(indexMin+1,indexMin+offset):
-		#slicing
-        content = dataString[indexMin:indexMax] 
+        slicedstring = dataString[indexMin:indexMax] 
+        if isPalindrome(slicedstring):
+            if len(slicedstring) > answerLen:
+                answerLen = len(slicedstring)
+                answer = slicedstring		
 
-		#even number of characters
-        if len(content) % 2 == 0:
-            for i in range(len(content)/2+1):
-                if content[i-1] != content [-i]:
-                    unSymFlag=1
-
-		#odd number of characters
-        else:
-            for i in range(((len(content)+1)/2)+1):
-                if content[i-1] != content [-i]:
-                    unSymFlag=1
-
-		#check if sliced word is symmetrical
-        if unSymFlag != 1:
-			
-			#check if symmetrical word is the longest
-            if len(content) > answerLen:
-				answerLen = len(content)
-				answer = content		
-
-		#reset flag
-        unSymFlag = 0
 
 print("The longest palindrome is '" + answer + "'.")
